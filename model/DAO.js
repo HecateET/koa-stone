@@ -12,7 +12,6 @@ function query(sql, values) {
                         reject(err);
                     } else {
                         resolve(rows);
-                        console.log("数据库链接成功");
                     }
                     connection.release();
                 })
