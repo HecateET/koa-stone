@@ -21,6 +21,17 @@ class DB {
         let sql = "INSERT INTO stoneclassify (stoneTypeName,stonePY,stonePinYin,stoneOriginId,originProvince) VALUES(?,?,?,?,?);";
         return DAO(sql,[typeName,stonePY,stonePinYin,stoneOriginId,originProvince]);
     }
+
+//   查询所有省份
+    getAllProvince(){
+        let sql = "SELECT * FROM province";
+        return DAO(sql);
+    }
+//    根据省份Id查询石头品种
+    getStoneTypeByProvinceId(provinceId){
+        let sql = "SELECT stoneTypeId,stoneTypeName,stonePY,stonePinYin FROM stoneclassify WHERE stoneOriginId = ?";
+        return DAO(sql,[provinceId]);
+    }
 }
 
 module.exports = new DB();
