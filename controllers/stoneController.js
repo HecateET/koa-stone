@@ -28,6 +28,25 @@ module.exports = {
         }catch (e) {
             ctx.body = {"code": 500, "message": e.toString(), data:[]};
         }
+    },
+    getAllStone:async(ctx,next) =>{
+        try{
+            let stoneList = await stoneDAO.getAllStone();
+            console.log(stoneList);
+            ctx.body = {"code":200,"message":"ok",data:stoneList};
+        }catch (e) {
+            ctx.body = {"code":500,"message":e.toString(),data:[]};
+        }
+    },
+    getStoneById:async(ctx,next)=>{
+        try{
+            let userId = ctx.params.stoneId,
+                stoneInfo = await stoneDAO.getStoneById(userId);
+            console.log(stoneInfo);
+            ctx.body = {"code":200,"message":"ok",data:stoneInfo};
+        }catch (e) {
+            ctx.body = {"code":500,"message":e.toString(),data:[]};
+        }
     }
 
 };

@@ -32,6 +32,15 @@ class DB {
         let sql = "SELECT stoneTypeId,stoneTypeName,stonePY,stonePinYin FROM stoneclassify WHERE stoneOriginId = ?";
         return DAO(sql,[provinceId]);
     }
+//    查询所有奇石
+    getAllStone(){
+        let sql = "SELECT * FROM stone";
+        return DAO(sql);
+    }
+    getStoneById(id){
+        let sql = "SELECT * FROM stone WHERE stoneId = ?";
+        return DAO(sql,[id]);
+    }
 }
 
 module.exports = new DB();

@@ -13,6 +13,12 @@ router.get('/bar', function (ctx, next) {
 router.get('/cityList',async (ctx,next) =>{
    await stoneController.getALLProvince(ctx,next);
 });
+router.get('/stoneLists',async (ctx,next) =>{
+    await stoneController.getAllStone(ctx,next);
+});
+router.get('/stoneInfo/:stoneId',async(ctx,next)=>{
+    await stoneController.getStoneById(ctx,next);
+})
 router.post('/stoneTypeLists',async(ctx,next)=>{
     await stoneController.getStoneType(ctx,next);
 });
